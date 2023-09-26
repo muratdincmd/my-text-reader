@@ -1,8 +1,9 @@
 //
 //  my_text_readerApp.swift
-//  my text reader
+//  My Text Reader
 //
 //  Created by Murat Dinç on 26.09.2023.
+//  DivWizard - divwizard.com
 //
 
 import SwiftUI

@@ -1,8 +1,9 @@
 //
 //  my_text_readerTests.swift
-//  my text readerTests
+//  My Text Reader
 //
 //  Created by Murat Dinç on 26.09.2023.
+//  DivWizard - divwizard.com
 //
 
 import XCTest

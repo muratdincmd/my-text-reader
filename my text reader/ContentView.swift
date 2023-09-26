@@ -1,9 +1,9 @@
 //
 //  ContentView.swift
-//  my text reader
+//  My Text Reader
 //
 //  Created by Murat Dinç on 26.09.2023.
-// DivWizard - divwizard.com
+//  DivWizard - divwizard.com
 //
 
 
@@ -54,7 +54,8 @@ struct ContentView: View {
                 .padding()
                 .border(Color.gray, width: 1)
                 .cornerRadius(8)
-                .lineSpacing(50)
+                .font(.system(size: 16))
+                .lineSpacing(5)
                 .overlay(
                     Text("Text Field to Read").opacity(textToSpeak.isEmpty ? 1 : 0)
                         .foregroundColor(.gray)
