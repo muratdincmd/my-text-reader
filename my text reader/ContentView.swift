@@ -6,7 +6,6 @@
 //  DivWizard - divwizard.com
 //
 
-
 import SwiftUI
 import AVFoundation
 
@@ -20,6 +19,15 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     override init() {
         super.init()
         synthesizer.delegate = self
+
+        // Kaydedilmiş ayarları oku
+        if let savedSpeechRate = UserDefaults.standard.value(forKey: "SpeechRate") as? Double {
+            speechRate = savedSpeechRate
+        }
+
+        if let savedLanguageIndex = UserDefaults.standard.value(forKey: "SelectedLanguageIndex") as? Int {
+            selectedLanguageIndex = savedLanguageIndex
+        }
     }
 
     func speakText(_ text: String) {
@@ -28,7 +36,12 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         utterance.rate = Float(AVSpeechUtteranceDefaultSpeechRate) * Float(speechRate) // Set speed by user
         synthesizer.speak(utterance)
         isSpeaking = true
+        
+        // Kullanıcının seçtiği ayarları kaydedin
+        UserDefaults.standard.set(speechRate, forKey: "SpeechRate")
+        UserDefaults.standard.set(selectedLanguageIndex, forKey: "SelectedLanguageIndex")
     }
+
 
     func stopSpeech() {
         synthesizer.stopSpeaking(at: .immediate)
@@ -42,6 +55,7 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     let supportedLanguages = [
         "US", "TR", "FR", "DE", "ES", "IT", "NL", "RU", "JP", "KR", "BR", "SE", "CN"
     ]
+    
 }
 
 struct ContentView: View {
