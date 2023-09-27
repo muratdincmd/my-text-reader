@@ -14,8 +14,10 @@
 		B717A6862AC32C1400C7EF62 /* my_text_readerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717A6852AC32C1400C7EF62 /* my_text_readerTests.swift */; };
 		B717A6902AC32C1400C7EF62 /* my_text_readerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717A68F2AC32C1400C7EF62 /* my_text_readerUITests.swift */; };
 		B717A6922AC32C1400C7EF62 /* my_text_readerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717A6912AC32C1400C7EF62 /* my_text_readerUITestsLaunchTests.swift */; };
-		B774B4952AC3417F00458DB5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B774B4942AC3417F00458DB5 /* SwiftUI.framework */; };
-		B774B4972AC341F400458DB5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B774B4962AC341F400458DB5 /* AVFoundation.framework */; };
+		B76F3A7C2AC3F6440081FC20 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B774B4962AC341F400458DB5 /* AVFoundation.framework */; };
+		B76F3A7D2AC3F6440081FC20 /* AVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B774B4962AC341F400458DB5 /* AVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B76F3A7F2AC3F6470081FC20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B774B4942AC3417F00458DB5 /* SwiftUI.framework */; };
+		B76F3A802AC3F6470081FC20 /* SwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B774B4942AC3417F00458DB5 /* SwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B76F3A7E2AC3F6440081FC20 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B76F3A802AC3F6470081FC20 /* SwiftUI.framework in Embed Frameworks */,
+				B76F3A7D2AC3F6440081FC20 /* AVFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B717A6702AC32C1300C7EF62 /* my text reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my text reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B717A6732AC32C1300C7EF62 /* my_text_readerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_text_readerApp.swift; sourceTree = "<group>"; };
@@ -47,6 +64,7 @@
 		B717A68B2AC32C1400C7EF62 /* my text readerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "my text readerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B717A68F2AC32C1400C7EF62 /* my_text_readerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_text_readerUITests.swift; sourceTree = "<group>"; };
 		B717A6912AC32C1400C7EF62 /* my_text_readerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_text_readerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B71EA1822AC3F35000306D53 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
 		B774B4942AC3417F00458DB5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		B774B4962AC341F400458DB5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -56,8 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B774B4972AC341F400458DB5 /* AVFoundation.framework in Frameworks */,
-				B774B4952AC3417F00458DB5 /* SwiftUI.framework in Frameworks */,
+				B76F3A7F2AC3F6470081FC20 /* SwiftUI.framework in Frameworks */,
+				B76F3A7C2AC3F6440081FC20 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +157,7 @@
 		B774B4932AC3417F00458DB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B71EA1822AC3F35000306D53 /* AuthenticationServices.framework */,
 				B774B4962AC341F400458DB5 /* AVFoundation.framework */,
 				B774B4942AC3417F00458DB5 /* SwiftUI.framework */,
 			);
@@ -155,6 +174,7 @@
 				B717A66C2AC32C1300C7EF62 /* Sources */,
 				B717A66D2AC32C1300C7EF62 /* Frameworks */,
 				B717A66E2AC32C1300C7EF62 /* Resources */,
+				B76F3A7E2AC3F6440081FC20 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

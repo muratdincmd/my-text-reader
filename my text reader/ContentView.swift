@@ -45,63 +45,114 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
 }
 
 struct ContentView: View {
-    @State private var textToSpeak = ""
+    @State private var selectedTabIndex = 0
     @ObservedObject private var speechManager = SpeechManager()
 
     var body: some View {
-        VStack {
-            TextEditor(text: $textToSpeak)
-                .padding()
-                .border(Color.gray, width: 1)
-                .cornerRadius(8)
-                .font(.system(size: 16))
-                .lineSpacing(5)
-                .overlay(
-                    Text("Text Field to Read").opacity(textToSpeak.isEmpty ? 1 : 0)
-                        .foregroundColor(.gray)
-                )
-            
-            Picker("Select Language:", selection: $speechManager.selectedLanguageIndex) {
-                ForEach(0..<speechManager.supportedLanguages.count, id: \.self) { index in
-                    Text(speechManager.supportedLanguages[index])
+        TabView(selection: $selectedTabIndex) {
+            AVFoundationPage()
+                .tabItem {
+                    Label("AVFoundation", systemImage: "speaker.wave.2.fill")
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.top, 15)
+                .tag(0)
 
-            Slider(value: $speechManager.speechRate, in: 0.5...1.75, step: 0.05) {
-                Text("Reading Speed: \(String(format: "%.2f", speechManager.speechRate))x")
-            }
-            .padding(.top, 10)
-
-            HStack {
-                
-                ShareLink("Share", item: URL(string: "https://github.com/muratdincmd/my-text-reader")!)
-                
-                
-                Spacer()
-                
-                Button(action: {
-                    if speechManager.isSpeaking {
-                        speechManager.stopSpeech()
-                    } else {
-                        speechManager.speakText(textToSpeak)
-                    }
-                }) {
-                    Text(speechManager.isSpeaking ? "Stop Reading" : "Read Text")
+            SecondPageView2()
+                .tabItem {
+                    Label("Classic", systemImage: "book.fill")
                 }
-                
-                Spacer()
-                
-                Text("Created by")
-                Link("DivWizard", destination: URL(string: "https://divwizard.com/")!)
-                
-            }
-            .padding(.top, 15)
+                .tag(1)
+
+            SecondPageView3()
+                .tabItem {
+                    Label("Siri", systemImage: "mic.fill")
+                }
+                .tag(2)
+
+            SecondPageView4()
+                .tabItem {
+                    Label("System", systemImage: "terminal.fill")
+                }
+                .tag(3)
         }
         .padding()
     }
 }
+
+struct AVFoundationPage: View {
+    @State private var textToSpeak = ""
+    @ObservedObject private var speechManager = SpeechManager()
+    var body: some View {
+            VStack {
+                TextEditor(text: $textToSpeak)
+                    .padding()
+                    .border(Color.gray, width: 1)
+                    .cornerRadius(8)
+                    .font(.system(size: 16))
+                    .lineSpacing(5)
+                    .overlay(
+                        Text("Text Field to Read").opacity(textToSpeak.isEmpty ? 1 : 0)
+                            .foregroundColor(.gray)
+                    )
+                
+                Picker("Select Language:", selection: $speechManager.selectedLanguageIndex) {
+                    ForEach(0..<speechManager.supportedLanguages.count, id: \.self) { index in
+                        Text(speechManager.supportedLanguages[index])
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.top, 15)
+
+                Slider(value: $speechManager.speechRate, in: 0.5...1.75, step: 0.05) {
+                    Text("Reading Speed: \(String(format: "%.2f", speechManager.speechRate))x")
+                }
+                .padding(.top, 10)
+
+                HStack {
+                    
+                    ShareLink("Share", item: URL(string: "https://github.com/muratdincmd/my-text-reader")!)
+                    
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        if speechManager.isSpeaking {
+                            speechManager.stopSpeech()
+                        } else {
+                            speechManager.speakText(textToSpeak)
+                        }
+                    }) {
+                        Text(speechManager.isSpeaking ? "Stop Reading" : "Read Text")
+                    }
+                    
+                    Spacer()
+                    
+                    Text("Created by")
+                    Link("DivWizard", destination: URL(string: "https://divwizard.com/")!)
+                    
+                }
+                .padding(.top, 15)
+            }
+            .padding()
+        }
+    }
+    
+    struct SecondPageView2: View {
+        var body: some View {
+            Text("Very Soon")
+        }
+    }
+    
+    struct SecondPageView3: View {
+        var body: some View {
+            Text("Very Soon")
+        }
+    }
+    
+    struct SecondPageView4: View {
+        var body: some View {
+            Text("Very Soon")
+        }
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
