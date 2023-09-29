@@ -64,7 +64,6 @@
 		B717A68B2AC32C1400C7EF62 /* my text readerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "my text readerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B717A68F2AC32C1400C7EF62 /* my_text_readerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_text_readerUITests.swift; sourceTree = "<group>"; };
 		B717A6912AC32C1400C7EF62 /* my_text_readerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_text_readerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B71EA1822AC3F35000306D53 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
 		B774B4942AC3417F00458DB5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		B774B4962AC341F400458DB5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -157,7 +156,6 @@
 		B774B4932AC3417F00458DB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B71EA1822AC3F35000306D53 /* AuthenticationServices.framework */,
 				B774B4962AC341F400458DB5 /* AVFoundation.framework */,
 				B774B4942AC3417F00458DB5 /* SwiftUI.framework */,
 			);
@@ -455,7 +453,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "my text reader/my_text_reader.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"my text reader/Preview Content\"";
 				DEVELOPMENT_TEAM = 47WF6NHP5J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -477,7 +475,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "divwizard.my-text-reader";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "divwizard-my-text-reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -497,7 +495,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "my text reader/my_text_reader.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"my text reader/Preview Content\"";
 				DEVELOPMENT_TEAM = 47WF6NHP5J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -519,7 +517,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "divwizard.my-text-reader";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "divwizard-my-text-reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
