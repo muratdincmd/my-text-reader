@@ -9,6 +9,23 @@
 import SwiftUI
 import AVFoundation
 
+class TabSelectionViewModel: ObservableObject {
+    // The selectedTab property to store the currently selected tab index.
+    @Published var selectedTab: Int {
+        didSet {
+            // When selectedTab changes, we save its value in UserDefaults with the key "SelectedTab".
+            UserDefaults.standard.set(selectedTab, forKey: "SelectedTab")
+        }
+    }
+
+    init() {
+        // When initializing, we retrieve the previously stored selectedTab value from UserDefaults.
+        self.selectedTab = UserDefaults.standard.integer(forKey: "SelectedTab")
+    }
+}
+
+
+
 class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     @Published var isSpeaking = false
     @Published var selectedLanguageIndex = 0 // Sequence number of the default language
@@ -104,8 +121,10 @@ class SystemSpeechManager: ObservableObject {
 }
 
 struct ContentView: View {
+    @StateObject private var tabSelection = TabSelectionViewModel()
+
     var body: some View {
-        TabView {
+        TabView(selection: $tabSelection.selectedTab) {
             AVFoundation()
                 .tabItem {
                     Label("AVFoundation", systemImage: "speaker.wave.2.fill")
@@ -125,6 +144,7 @@ struct ContentView: View {
         .padding()
     }
 }
+
 
 struct AVFoundation: View {
     @State private var textToSpeak = ""
