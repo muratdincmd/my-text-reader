@@ -88,6 +88,11 @@ class SystemSpeechManager: ObservableObject {
             SystemSpeechRate = SystemSavedSpeechRate
         }
     }
+    
+    // Computed property to check if the selected voice is "Default"
+    var isDefaultVoiceSelected: Bool {
+        return selectedVoice == "Default"
+    }
 
     func startReading(_ text: String) {
         // Save settings to UserDefaults when reading starts
@@ -95,7 +100,14 @@ class SystemSpeechManager: ObservableObject {
         UserDefaults.standard.set(SystemSpeechRate, forKey: "SystemSpeechRate")
 
         let quotedText = "\"\(text)\""
-        let command = "say -r \(Int(SystemSpeechRate)) -v \(selectedVoice) \(quotedText)" // Set reading speed and voiceover language
+        var command = "say -r \(Int(SystemSpeechRate))"
+
+        // Conditionally include the -v option if a non-default voice is selected
+        if !isDefaultVoiceSelected {
+            command += " -v \(selectedVoice)"
+        }
+
+        command += " \(quotedText)" // Set reading speed and voiceover language
 
         let process = Process()
         process.launchPath = "/bin/bash"
@@ -235,6 +247,9 @@ struct System: View {
             
             HStack {
                 Menu(systemSpeechManager.selectedVoice) {
+                    Button("Default") {
+                        systemSpeechManager.selectedVoice = "Default"
+                    }
                     Button("Albert [en_US]") {
                         systemSpeechManager.selectedVoice = "Albert"
                     }
